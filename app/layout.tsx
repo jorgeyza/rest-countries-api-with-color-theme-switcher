@@ -23,7 +23,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Navbar />
-          <Container maxWidth={1440}>{children}</Container>
+          <Container paddingY={12} paddingX={20} maxWidth={1440}>
+            {children}
+          </Container>
         </body>
       </ChakraProvider>
     </html>
