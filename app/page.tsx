@@ -99,7 +99,7 @@ const countriesInfo = [
 
 export default function Home() {
   return (
-    <Flex paddingY={12} paddingX={20} flexDirection='column' rowGap={12}>
+    <Flex flexDirection='column' rowGap={12}>
       <Flex justifyContent='space-between'>
         <SearchInput />
         <SelectInput />
