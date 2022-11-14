@@ -1,6 +1,6 @@
 // generated with quicktype.io
 
-export interface Country {
+export interface ICountry {
   name: Name;
   tld?: string[];
   cca2: string;
@@ -29,35 +29,35 @@ export interface Country {
   car: Car;
   timezones: string[];
   continents: Continent[];
-  flags: CoatOfArms;
-  coatOfArms: CoatOfArms;
+  flags: ImageExtension;
+  coatOfArms: ImageExtension;
   startOfWeek: StartOfWeek;
   capitalInfo: CapitalInfo;
   postalCode?: PostalCode;
-  borders?: string[];
+  borders: string[];
   gini?: { [key: string]: number };
 }
 
-export interface CapitalInfo {
+interface CapitalInfo {
   latlng?: number[];
 }
 
-export interface Car {
+interface Car {
   signs?: string[];
   side: Side;
 }
 
-export enum Side {
+enum Side {
   Left = 'left',
   Right = 'right'
 }
 
-export interface CoatOfArms {
-  png?: string;
+interface ImageExtension {
+  png: string;
   svg?: string;
 }
 
-export enum Continent {
+enum Continent {
   Africa = 'Africa',
   Antarctica = 'Antarctica',
   Asia = 'Asia',
@@ -67,7 +67,7 @@ export enum Continent {
   SouthAmerica = 'South America'
 }
 
-export interface Currencies {
+interface Currencies {
   BBD?: CurrencyInfo;
   USD?: CurrencyInfo;
   XAF?: CurrencyInfo;
@@ -233,48 +233,48 @@ export interface Currencies {
   COP?: CurrencyInfo;
 }
 
-export interface CurrencyInfo {
+interface CurrencyInfo {
   name: string;
   symbol?: string;
 }
 
-export interface Demonyms {
+interface Demonyms {
   eng: MaleFemaleDemonyms;
   fra?: MaleFemaleDemonyms;
 }
 
-export interface MaleFemaleDemonyms {
+interface MaleFemaleDemonyms {
   f: string;
   m: string;
 }
 
-export interface Idd {
+interface Idd {
   root?: string;
   suffixes?: string[];
 }
 
-export interface Maps {
+interface Maps {
   googleMaps: string;
   openStreetMaps: string;
 }
 
-export interface Name {
+interface Name {
   common: string;
   official: string;
   nativeName?: { [key: string]: Translation };
 }
 
-export interface Translation {
+interface Translation {
   official: string;
   common: string;
 }
 
-export interface PostalCode {
+interface PostalCode {
   format: string;
   regex?: string;
 }
 
-export enum Region {
+enum Region {
   Africa = 'Africa',
   Americas = 'Americas',
   Antarctic = 'Antarctic',
@@ -283,13 +283,13 @@ export enum Region {
   Oceania = 'Oceania'
 }
 
-export enum StartOfWeek {
+enum StartOfWeek {
   Monday = 'monday',
   Saturday = 'saturday',
   Sunday = 'sunday'
 }
 
-export enum Status {
+enum Status {
   OfficiallyAssigned = 'officially-assigned',
   UserAssigned = 'user-assigned'
 }
