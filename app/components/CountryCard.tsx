@@ -11,7 +11,7 @@ interface Props {
     };
     population: number;
     region: string;
-    capital: string[];
+    capital?: string[];
     flags: {
       png: string;
     };
@@ -19,9 +19,10 @@ interface Props {
 }
 
 const CountryCard = ({ countryInfo }: Props) => {
+  const countryCapital = countryInfo.capital ? countryInfo.capital[0] : 'Does not have a capital';
   return (
     <Link href={`./country/${countryInfo.name.common}`}>
-      <Flex flexDirection='column' backgroundColor='element' rounded={8} overflow='hidden'>
+      <Flex flexDirection='column' backgroundColor='element' rounded={8} overflow='hidden' boxShadow='md'>
         <Box position='relative' width='100%' height={160}>
           <Image src={countryInfo.flags.png} alt={`${countryInfo.name.common} flag`} fill />
         </Box>
@@ -49,7 +50,7 @@ const CountryCard = ({ countryInfo }: Props) => {
                 Capital:
               </Text>{' '}
               <Text as='span' fontWeight={300}>
-                {countryInfo.capital[0]}
+                {countryCapital}
               </Text>
             </div>
           </div>
