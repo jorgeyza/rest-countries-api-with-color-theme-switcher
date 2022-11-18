@@ -1,16 +1,16 @@
 'use client';
 
 import { Flex, SimpleGrid } from '@chakra-ui/react';
-
-import countriesJson from './dummy.json' assert { type: 'json' };
+import { useQuery } from '@tanstack/react-query';
 
 import SearchInput from './components/SearchInput';
 import SelectInput from './components/RegionsFilter';
 import CountryCard from './components/CountryCard';
 
-const countriesInfo = countriesJson.slice(0, 8);
+import { getAllCountries } from './api';
 
 export default function Home() {
+  const { data } = useQuery({ queryKey: ['all-countries'], queryFn: getAllCountries });
   return (
     <Flex flexDirection='column' rowGap={12}>
       <Flex justifyContent='space-between'>
@@ -18,8 +18,8 @@ export default function Home() {
         <SelectInput />
       </Flex>
       <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
-        {countriesInfo.map((countryInfo, index) => (
-          <CountryCard countryInfo={countryInfo} key={index} />
+        {data?.map((countryInfo, index) => (
+          <CountryCard countryInfo={countryInfo} key={`${index}${countryInfo.cca2}`} />
         ))}
       </SimpleGrid>
     </Flex>
