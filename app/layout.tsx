@@ -1,6 +1,7 @@
 'use client';
 import { ChakraProvider, ColorModeScript, Container } from '@chakra-ui/react';
 import { Nunito_Sans } from '@next/font/google';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import Navbar from './components/Navbar';
 
@@ -11,6 +12,8 @@ const nunitoSans = Nunito_Sans({
   subsets: ['latin']
 });
 
+const queryClient = new QueryClient();
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en' className={nunitoSans.className}>
@@ -20,13 +23,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       */}
       <head />
       <ChakraProvider theme={theme}>
-        <body>
-          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-          <Navbar />
-          <Container paddingY={12} paddingX={20} maxWidth={1440}>
-            {children}
-          </Container>
-        </body>
+        <QueryClientProvider client={queryClient}>
+          <body>
+            <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+            <Navbar />
+            <Container paddingY={12} paddingX={20} maxWidth={1440}>
+              {children}
+            </Container>
+          </body>
+        </QueryClientProvider>
       </ChakraProvider>
     </html>
   );
