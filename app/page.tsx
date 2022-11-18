@@ -2,100 +2,13 @@
 
 import { Flex, SimpleGrid } from '@chakra-ui/react';
 
+import countriesJson from './dummy.json' assert { type: 'json' };
+
 import SearchInput from './components/SearchInput';
 import SelectInput from './components/RegionsFilter';
 import CountryCard from './components/CountryCard';
 
-const countriesInfo = [
-  {
-    name: {
-      common: 'Germany'
-    },
-    population: 81770900,
-    region: 'Americas',
-    capital: ['Berlin'],
-    flags: {
-      png: 'https://flagcdn.com/w320/de.png'
-    }
-  },
-  {
-    name: {
-      common: 'Germany'
-    },
-    population: 81770900,
-    region: 'Americas',
-    capital: ['Berlin'],
-    flags: {
-      png: 'https://flagcdn.com/w320/de.png'
-    }
-  },
-  {
-    name: {
-      common: 'Germany'
-    },
-    population: 81770900,
-    region: 'Americas',
-    capital: ['Berlin'],
-    flags: {
-      png: 'https://flagcdn.com/w320/de.png'
-    }
-  },
-  {
-    name: {
-      common: 'Germany'
-    },
-    population: 81770900,
-    region: 'Americas',
-    capital: ['Berlin'],
-    flags: {
-      png: 'https://flagcdn.com/w320/de.png'
-    }
-  },
-  {
-    name: {
-      common: 'Germany'
-    },
-    population: 81770900,
-    region: 'Americas',
-    capital: ['Berlin'],
-    flags: {
-      png: 'https://flagcdn.com/w320/de.png'
-    }
-  },
-  {
-    name: {
-      common: 'Germany'
-    },
-    population: 81770900,
-    region: 'Americas',
-    capital: ['Berlin'],
-    flags: {
-      png: 'https://flagcdn.com/w320/de.png'
-    }
-  },
-  {
-    name: {
-      common: 'Germany'
-    },
-    population: 81770900,
-    region: 'Americas',
-    capital: ['Berlin'],
-    flags: {
-      png: 'https://flagcdn.com/w320/de.png'
-    }
-  },
-  {
-    name: {
-      common: 'Germany'
-    },
-    population: 81770900,
-    region: 'Americas',
-    capital: ['Berlin'],
-    flags: {
-      png: 'https://flagcdn.com/w320/de.png'
-    }
-  }
-];
+const countriesInfo = countriesJson.slice(0, 8);
 
 export default function Home() {
   return (
