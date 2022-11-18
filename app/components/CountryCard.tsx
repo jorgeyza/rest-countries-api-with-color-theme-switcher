@@ -4,18 +4,10 @@ import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { ICountry } from '../types';
+
 interface Props {
-  countryInfo: {
-    name: {
-      common: string;
-    };
-    population: number;
-    region: string;
-    capital?: string[];
-    flags: {
-      png: string;
-    };
-  };
+  countryInfo: ICountry;
 }
 
 const CountryCard = ({ countryInfo }: Props) => {
@@ -23,7 +15,7 @@ const CountryCard = ({ countryInfo }: Props) => {
   return (
     <Link href={`./country/${countryInfo.name.common}`}>
       <Flex flexDirection='column' backgroundColor='element' rounded={8} overflow='hidden' boxShadow='md'>
-        <Box position='relative' width='100%' height={160}>
+        <Box position='relative' height={160}>
           <Image src={countryInfo.flags.png} alt={`${countryInfo.name.common} flag`} fill />
         </Box>
         <Flex flexDirection='column' rowGap={4} padding={6}>
