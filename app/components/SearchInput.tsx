@@ -1,21 +1,20 @@
 'use client';
 
-import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import { Input, InputGroup, InputLeftElement, useColorModeValue } from '@chakra-ui/react';
 import { FaSearch } from 'react-icons/fa';
 
-// interface Props {}
-
 const SearchInput = () => {
+  const leftIconColor = useColorModeValue('lm.darkGray', 'text');
   return (
-    <InputGroup maxWidth={500}>
-      <InputLeftElement pointerEvents='none'>
-        <FaSearch color='white' />
-      </InputLeftElement>
+    <InputGroup maxWidth={500} size='lg'>
+      <InputLeftElement pointerEvents='none' color={leftIconColor} children={<FaSearch />} />
       <Input
-        sx={{ '::placeholder': { color: 'white', fontWeight: 300, opacity: 0.9 } }}
-        color='white'
+        // sx={{ '::placeholder': { color: 'white', fontWeight: 300, opacity: 0.9 } }}
+        backgroundColor='element'
+        border={0}
+        boxShadow='sm'
+        fontSize={16}
         type='text'
-        backgroundColor='dm.darkBlue'
         placeholder='Search for a country...'
       />
     </InputGroup>

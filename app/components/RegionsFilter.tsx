@@ -23,10 +23,12 @@ const RegionsFilter = () => {
     <Menu>
       <MenuButton
         as={Button}
+        backgroundColor='element'
+        boxShadow='sm'
         width='100%'
         maxWidth={200}
-        backgroundColor='dm.darkBlue'
-        rightIcon={<FaChevronDown size={12} />}>
+        height='48px'
+        rightIcon={<FaChevronDown size={10} />}>
         {regions.find((region) => region.value === selectedRegion)?.label ?? (
           <Text as='span' fontWeight={300}>
             Filter by Region
