@@ -16,7 +16,12 @@ const CountryCard = ({ countryInfo }: Props) => {
     <Link href={`./country/${countryInfo.name.common}`}>
       <Flex flexDirection='column' backgroundColor='element' rounded={8} overflow='hidden' boxShadow='md'>
         <Box position='relative' height={160}>
-          <Image src={countryInfo.flags.png} alt={`${countryInfo.name.common} flag`} fill />
+          <Image
+            src={countryInfo.flags.png}
+            alt={`${countryInfo.name.common} flag`}
+            fill
+            sizes='(max-width: 767px) 600px, (max-width: 991px) 280px, 180px'
+          />
         </Box>
         <Flex flexDirection='column' rowGap={4} padding={6}>
           <Heading fontSize='18px'>{countryInfo.name.common}</Heading>
