@@ -20,7 +20,8 @@ export const globalStyles = {
     },
     body: {
       color: 'text',
-      fontSize: '14px'
+      fontSize: '14px',
+      backgroundColor: 'mainBackgroundColor'
     }
   }
 };

@@ -37,6 +37,10 @@ const theme = extendTheme({
       element: {
         default: 'white',
         _dark: 'dm.darkBlue'
+      },
+      mainBackgroundColor: {
+        default: 'lm.veryLightGray',
+        _dark: 'dm.veryDarkBlue'
       }
     }
   },
