@@ -1,6 +1,7 @@
 'use client';
 
 import { Button, Flex, Heading, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import Link from 'next/link';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 const Navbar = () => {
@@ -15,9 +16,11 @@ const Navbar = () => {
       justifyContent='space-between'
       paddingX={20}
       height={20}>
-      <Heading as='h1' size='md' color='text' fontWeight={800}>
-        Where in the world?
-      </Heading>
+      <Link href='/'>
+        <Heading as='h1' size='md' color='text' fontWeight={800}>
+          Where in the world?
+        </Heading>
+      </Link>
       <Button
         color='text'
         aria-label={`Switch to ${ariaLabel}`}
