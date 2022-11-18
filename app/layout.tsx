@@ -1,4 +1,5 @@
 'use client';
+
 import { ChakraProvider, ColorModeScript, Container } from '@chakra-ui/react';
 import { Nunito_Sans } from '@next/font/google';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
