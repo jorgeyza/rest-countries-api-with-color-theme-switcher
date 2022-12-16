@@ -10,18 +10,22 @@ import CountryCard from './components/CountryCard';
 import { getAllCountries } from './api';
 
 export default function Home() {
-  const { data } = useQuery({ queryKey: ['all-countries'], queryFn: getAllCountries });
+  const { data, isFetching } = useQuery({ queryKey: ['all-countries'], queryFn: getAllCountries });
   return (
     <Flex flexDirection='column' rowGap={12}>
       <Flex justifyContent='space-between'>
         <SearchInput />
         <SelectInput />
       </Flex>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
-        {data?.map((countryInfo, index) => (
-          <CountryCard countryInfo={countryInfo} key={`${index}${countryInfo.cca2}`} />
-        ))}
-      </SimpleGrid>
+      {isFetching ? (
+        <p>Loading</p>
+      ) : (
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
+          {data?.map((countryInfo, index) => (
+            <CountryCard countryInfo={countryInfo} key={`${index}${countryInfo.cca2}`} />
+          ))}
+        </SimpleGrid>
+      )}
     </Flex>
   );
 }
