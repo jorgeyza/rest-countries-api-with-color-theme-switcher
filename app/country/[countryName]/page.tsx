@@ -3,13 +3,13 @@
 import { Box, Button, Center, Flex, Heading } from '@chakra-ui/react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useMemo } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-
-import countriesInfo from '../../dummy.json' assert { type: 'json' };
+import { useQuery } from '@tanstack/react-query';
 
 import CountryBorders from './CountryBorders';
 import CountryPropertiesColumn from './CountryPropertiesColumn';
+
+import { getCountryByName } from '../../api';
 
 interface Params {
   params: {
@@ -19,11 +19,11 @@ interface Params {
 
 export default function Country({ params }: Params) {
   const router = useRouter();
-  const country = useMemo(
-    () => countriesInfo.find((country) => country.name.common === params.countryName),
-    [params.countryName]
-  );
-  console.log('🚀 ~ file: page.tsx ~ line 26 ~ Country ~ country', country);
+  const { data: country } = useQuery({
+    queryKey: ['country-by-name', params.countryName],
+    queryFn: async () => await getCountryByName(params.countryName)
+  });
+
   if (!country)
     return (
       <Center>
@@ -94,7 +94,7 @@ export default function Country({ params }: Params) {
             <CountryPropertiesColumn countryProperties={countryProperties1} />
             <CountryPropertiesColumn countryProperties={countryProperties2} />
           </Flex>
-          <CountryBorders countryBorders={country.borders} />
+          <CountryBorders countryBordersCodes={country.borders} />
         </Flex>
       </Flex>
     </>
